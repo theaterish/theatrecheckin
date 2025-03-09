@@ -1,0 +1,342 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-container {
+    max-width: 500px;
+    height: calc(100vh - 70px); /* Account for nav bar */
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.app-header {
+    padding: 15px 0;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Container styles */
+.container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Login form styles */
+.login-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.primary-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.primary-button:hover {
+    background-color: #2980b9;
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Check-in button styles */
+.check-in-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 40px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.check-in-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.check-in-button:active {
+    transform: translateY(1px);
+}
+
+.check-in-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status indicator styles */
+.status {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.pending {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* Information section styles */
+.info-section {
+    margin-top: 30px;
+}
+
+.info-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+/* Tab container styles */
+.tab-container {
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #e3e3e3;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+}
+
+.tab.active {
+    border-bottom: 3px solid #3498db;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Actor list styles */
+.actor-list {
+    list-style: none;
+}
+
+.actor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.actor-item:last-child {
+    border-bottom: none;
+}
+
+.actor-name {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.checked-in {
+    background-color: #2ecc71;
+}
+
+.absent {
+    background-color: #e74c3c;
+}
+
+.coming-soon {
+    background-color: #f39c12;
+}
+
+.placeholder {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+}
+
+/* Navigation bar styles */
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 12px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* View system */
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .check-in-button {
+        padding: 30px 15px;
+        font-size: 20px;
+    }
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+/* Add animation for view transitions */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.view.active {
+    animation: fadeIn 0.3s ease;
+}
