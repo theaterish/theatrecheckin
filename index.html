@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theatre Check-In</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
+    <!-- Add Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-messaging-compat.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Login View (shown by default) -->
+        <div id="loginView" class="view active">
+            <div class="container login-container">
+                <header>
+                    <h1>Theatre Check-In</h1>
+                    <p>Sign in to your account</p>
+                </header>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="primary-button">Sign In</button>
+                    <p class="error-message" id="loginError"></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Actor View (hidden until logged in) -->
+        <div id="actorView" class="view">
+            <header class="app-header">
+                <h1>Theatre Check-In</h1>
+                <p id="current-show">Current Production: "A Midsummer Night's Dream"</p>
+            </header>
+            
+            <div class="container">
+                <p id="location-status">Checking location...</p>
+                <button class="check-in-button" id="checkInButton" disabled>
+                    Check In to Rehearsal
+                </button>
+                <div class="status pending" id="checkInStatus">
+                    You are not checked in yet
+                </div>
+            </div>
+            
+            <div class="container info-section">
+                <h2>Today's Rehearsal</h2>
+                <div id="rehearsalDetails">
+                    <div class="info-item">
+                        <span>Time:</span>
+                        <span id="rehearsalTime">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Location:</span>
+                        <span id="rehearsalLocation">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Scenes:</span>
+                        <span id="rehearsalScenes">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stage Manager View (hidden until logged in as stage manager) -->
+        <div id="stageManagerView" class="view">
+            <header class="app-header">
+                <h1>Stage Manager Dashboard</h1>
+                <p id="sm-production-info">Loading production info...</p>
+            </header>
+            
+            <div class="container">
+                <h2>Attendance Summary</h2>
+                <div class="info-item">
+                    <span>Checked In:</span>
+                    <span id="checkedInCount">0/0</span>
+                </div>
+                <div class="info-item">
+                    <span>Missing:</span>
+                    <span id="missingCount">0</span>
+                </div>
+                <div class="info-item">
+                    <span>Rehearsal Start:</span>
+                    <span id="rehearsalStart">Loading...</span>
+                </div>
+            </div>
+            
+            <div class="container tab-container">
+                <div class="tabs">
+                    <div class="tab active" data-tab="all">All Cast</div>
+                    <div class="tab" data-tab="checked-in">Checked In</div>
+                    <div class="tab" data-tab="missing">Missing</div>
+                </div>
+                
+                <div class="tab-content active" id="all">
+                    <ul class="actor-list" id="allActorsList">
+                        <!-- Will be populated dynamically -->
+                        <li class="placeholder">Loading cast members...</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="checked-in">
+                    <ul class="actor-list" id="checkedInList">
+                        <!-- Will be populated dynamically -->
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="missing">
+                    <ul class="actor-list" id="missingList">
+                        <!-- Will be populated dynamically -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="nav-bar">
+        <div class="nav-item" data-view="home">
+            <div class="nav-icon">🏠</div>
+            <div>Home</div>
+        </div>
+        <div class="nav-item" data-view="schedule">
+            <div class="nav-icon">📅</div>
+            <div>Schedule</div>
+        </div>
+        <div class="nav-item" data-view="alerts">
+            <div class="nav-icon">🔔</div>
+            <div>Alerts</div>
+        </div>
+        <div class="nav-item" data-view="profile">
+            <div class="nav-icon">👤</div>
+            <div>Profile</div>
+        </div>
+    </div>
+
+    <!-- App Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/checkin.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
